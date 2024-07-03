@@ -1,0 +1,75 @@
+<div class="container">
+    <h2>Editar Registro</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card-body">
+                <form [formGroup]="editarRegistroForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="nombre">Nombre del empleado:</label>
+                        <input type="text" class="form-control" formControlName="nombre" />
+                        <!-- Mensaje de error de validación-->
+                        <div style="color:red;" *ngIf="enviado && myForm['nombre'].errors?.['required']">Este campo es obligatorio</div>
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <label for="hamburguesa">Hamburguesa:</label>
+                        <select class="custom-select form-control" (change)="actualizarHamburguesa($event.target.value)" formControlName="hamburguesa">
+                            <option value="">Selecciona una Hamburguesa</option>
+                            <option *ngFor="let hamburguesa of registroHamburguesa" value="{{ hamburguesa }}">{{ hamburguesa }}</option>
+                        </select>
+                        <!-- Mensaje de error de validación-->
+                        <div style="color:red;" *ngIf="enviado && myForm['hamburguesa'].errors?.['required']">Debes seleccionar una hamburguesa</div>
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <label for="papa">Papa:</label>
+                        <select class="custom-select form-control" (change)="actualizarPapa($event.target.value)" formControlName="papa">
+                            <option value="">Selecciona una Papa</option>
+                            <option *ngFor="let papa of registroPapa" value="{{ papa }}">{{ papa }}</option>
+                        </select>
+                        <!-- Mensaje de error de validación-->
+                        <div style="color:red;" *ngIf="enviado && myForm['papa'].errors?.['required']">Debes seleccionar una papa</div>
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <label for="bebida">Bebida:</label>
+                        <select class="custom-select form-control" (change)="actualizarBebida($event.target.value)" formControlName="bebida">
+                            <option value="">Selecciona una Bebida</option>
+                            <option *ngFor="let bebida of registroBebida" value="{{ bebida }}">{{ bebida }}</option>
+                        </select>
+                        <!-- Mensaje de error de validación-->
+                        <div style="color:red;" *ngIf="enviado && myForm['bebida'].errors?.['required']">Debes seleccionar una Bebida</div>
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <label for="gerente">Gerente:</label>
+                        <select class="custom-select form-control" (change)="actualizarGerente($event.target.value)" formControlName="gerente">
+                            <option value="">Selecciona un Gerente</option>
+                            <option *ngFor="let gerente of registroGerente" value="{{ gerente }}">{{ gerente }}</option>
+                        </select>
+                        <!-- Mensaje de error de validación-->
+                        <div style="color:red;" *ngIf="enviado && myForm['gerente'].errors?.['required']">Debes seleccionar un gerente</div>
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <label for="salida">Sálida:</label>
+                        <input type="string" class="form-control" formControlName="salida" />
+                        <!-- Mensaje de error de validación-->
+                        <div style="color:red;" *ngIf="enviado && myForm['salida'].errors?.['required']">Este campo es obligatorio</div>
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <label for="regreso">Teléfono:</label>
+                        <input type="string" class="form-control" formControlName="regreso" />
+                        <!-- Mensaje de error de validación-->
+                        <div style="color:red;" *ngIf="enviado && myForm['regreso'].errors?.['required']">Este campo es obligatorio</div>
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <button class="btn btn-success btn-lg btn-block" type="submit">Guardar Cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
