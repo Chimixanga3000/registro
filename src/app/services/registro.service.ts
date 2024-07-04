@@ -1,6 +1,5 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TitleStrategy } from '@angular/router';
 import { catchError, map, Observable, throwError } from 'rxjs';
 
 @Injectable({
@@ -9,7 +8,8 @@ import { catchError, map, Observable, throwError } from 'rxjs';
 export class RegistroService {
 
   //propiedades
-  baseUri: string = 'http://localhost:4000/api';
+  //baseUri: string = 'http://localhost:4000/api';
+  baseUri: string = 'https://registro-9ngr.onrender.com/api';
   headers = new HttpHeaders().set('Content-Type','application/json');
 
   constructor(private http:HttpClient) { }
